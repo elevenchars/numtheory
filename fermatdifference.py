@@ -2,8 +2,12 @@ import math
 
 
 def fd(n: int) -> tuple:
-    """Calculate nontrivial factors of n using the fermat difference of squares method.
-    This method works best when the factors p,q are near sqrt n.
+    """Calculate nontrivial factors of n using the fermat difference of
+    squares method. This method works best when the factors p,q are near sqrt 
+    n.
+
+    There are more optimizations to be made, namely the sieve method described
+    in the wikipedia page for this method.
 
     Arguments:
         n {int} -- number to factor
