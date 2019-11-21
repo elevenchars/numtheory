@@ -16,12 +16,18 @@ def rho(n: int) -> int:
     a = random.randint(0,n-1)
     f = lambda x: (x**2 + a) % n
     x = 2 # starting value
-    while(True): # Danger!
-        y = f(x)
+    y = 2
+    while True:
+        x = f(x)
+        y = f(f(x))
         d = math.gcd(abs(y-x), n)
+        print(x,y,d)
         if d > 1:
             return d
-        x = y
+        if x == y:
+            print("cycle, retry")
+            return rho(n) # big brain
 
 
-print(rho(625))
+print(rho(1821089))
+print("\a")
