@@ -31,19 +31,19 @@ def fd(n: int) -> tuple:
     b = math.sqrt(a**2 - n)
 
     while not b.is_integer():
-        print(a, b)
+        print(a, int(b))
         a += 2
         b = math.sqrt(a**2 - n)
 
     print("a,b found!")
     print(f"a = {a}")
-    print(f"b = {b}")
+    print(f"b = {int(b)}")
     return (int(a+b), int(a-b))
 
 
 if __name__ == "__main__":
     n = int(input("Integer to factorize: "))
-    p,q = fd(n)
+    p, q = fd(n)
     assert p*q == n
     print(f"p = {p}")
     print(f"q = {q}")
