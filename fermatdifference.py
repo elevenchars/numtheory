@@ -23,7 +23,7 @@ def fd(n: int) -> tuple:
     if n % 4 == 1:
         if a % 2 == 0:
             a += 1
-    else: # a must be even if n cong -1 (mod 4)
+    else:  # a must be even if n cong -1 (mod 4)
         if a % 2 == 1:
             a += 1
 
@@ -31,19 +31,21 @@ def fd(n: int) -> tuple:
     b = math.sqrt(a**2 - n)
 
     while not b.is_integer():
-        print(a, int(b))
+        print(a, b)
         a += 2
         b = math.sqrt(a**2 - n)
+        if b > n:
+            return None
 
     print("a,b found!")
     print(f"a = {a}")
     print(f"b = {int(b)}")
-    return (int(a+b), int(a-b))
+    return (a, int(b), int(a+b), int(a-b))
 
 
 if __name__ == "__main__":
     n = int(input("Integer to factorize: "))
-    p, q = fd(n)
+    a, b, p, q = fd(n)
     assert p*q == n
     print(f"p = {p}")
     print(f"q = {q}")
